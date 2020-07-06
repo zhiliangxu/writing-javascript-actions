@@ -7,7 +7,7 @@ async function run() {
     const jokeBody = core.getInput("joke");
     const token = core.getInput("repo-token");
 
-    const octokit = new github.GitHub(token);
+    const octokit = github.getOctokit(token);
     const newIssue = await octokit.issues.create({
       repo: github.context.repo.repo,
       owner: github.context.repo.owner,
